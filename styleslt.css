@@ -1,0 +1,578 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Enlaza la fuente */
+@font-face {
+  font-family: 'Komika Axis';
+  src: url('fuentes/KOMIKAX_.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Komika Axis', sans-serif;
+  background-color: #e6f7ff; /* Color de fondo suave */
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden; /* Evita desplazamientos horizontales en móviles */
+}
+
+header {
+  background-color: #0074e1; /* Color vibrante */
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.5s; /* Transición suave */
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5em;
+  color: white;
+  font-weight: 600;
+}
+
+header ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+header ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+header ul li a:hover {
+  color: #a2d9ff;
+  transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+
+#hero {
+  background: linear-gradient(to bottom right, #0074e1, #00c3ff);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.hero-content {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 5em;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+}
+
+.hero-content h1 span {
+  color: #7fe1ff;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  opacity: 0.9; /* Ligera transparencia */
+}
+
+.hero-content a {
+  display: inline-block;
+  margin-bottom: 10px; /* Añade separación entre los botones */
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos */
+  }
+
+  .hero-content a {
+    width: 80%; /* Los botones ocuparán el 80% del ancho */
+    text-align: center; /* Asegura que el texto dentro esté centrado */
+  }
+}
+
+.demo {
+  visibility: visible;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #0074e1;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #00c3ff;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  background-color: #fff; /* Fondo blanco para secciones */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  font-size: 2.5em; /* Aumentar tamaño del encabezado */
+  margin-bottom: 15px;
+  color: #0074e1; /* Color del texto del encabezado */
+  transition: color 0.3s; /* Transición suave */
+}
+
+section p {
+  margin-bottom: 20px;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Ajuste de la galería de productos */
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra los productos en todas las pantallas */
+  gap: 20px; /* Espacio entre los productos */
+}
+
+/* Mejora la disposición de los productos en pantallas pequeñas */
+@media (max-width: 480px) {
+  .product-gallery {
+    display: flex;
+    flex-direction: column; /* Cambia la disposición a una columna */
+    align-items: center;
+    gap: 15px; /* Espacio entre las tarjetas */
+  }
+  
+  .product {
+    width: 100%; /* Los productos ocuparán todo el ancho */
+    max-width: 90%; /* Ajusta el ancho de los productos */
+  }
+}
+
+/* Evitar que los botones se partan en pantallas pequeñas */
+@media (max-width: 768px) {
+  .hero-content a {
+    width: 100%; /* Los botones ocuparán el 100% del ancho */
+    text-align: center; /* Asegura que el texto esté centrado */
+    margin-bottom: 10px; /* Añade separación entre los botones */
+  }
+}
+
+.product {
+  display: flex; /* Utiliza flexbox para alinear contenido */
+  flex-direction: column; /* Alinea elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  padding: 10px; /* Espacio interior para la tarjeta */
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 5px; /* Espacio entre las tarjetas */
+}
+
+.product img {
+  max-width: 90%; /* La imagen se adapta al ancho de la tarjeta */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 25px;
+  transition: transform 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.product img:hover {
+  transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+
+.product h3 {
+  margin-top: 0px;
+  text-align: center; /* Centra el texto */
+  font-size: 1.2em; /* Ajusta el tamaño del texto */
+}
+
+/* Opcional: Control de tamaño mínimo y máximo de la tarjeta */
+@media (max-width: 768px) {
+  .product {
+    max-width: 90%; /* Ocupa hasta el 90% del ancho en pantallas pequeñas */
+  }
+}
+
+@media (min-width: 769px) {
+  .product {
+    max-width: 300px; /* Tamaño máximo en pantallas más grandes */
+  }
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  padding: 15px;
+  border: 2px solid #0074e1;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: border-color 0.3s; /* Transición de color del borde */
+}
+
+input:focus, textarea:focus {
+  border-color: #00c3ff; /* Cambia el color del borde al enfocar */
+}
+
+footer {
+  background-color: #0074e1;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 0px;
+  width: 100%;
+  height: 70px;
+}
+
+footer p {
+  font-size: 1em;
+}
+
+/* Animaciones de fade-in */
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  header ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header .logo {
+    font-size: 1.2em;
+  }
+
+  .hero-content h1 {
+    font-size: 5.2em;
+  }
+
+  .hero-content p {
+    font-size: 1em;
+  }
+
+  section h2 {
+    font-size: 1.8em;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-primary {
+    padding: 10px 15px;
+  }
+}
+
+/* Media Queries para pantallas extra pequeñas */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8em;
+  }
+
+  .hero-content p {
+    font-size: 0.9em;
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  .product {
+    max-width: 90%;
+  }
+
+  .form-group input, .form-group textarea {
+    font-size: 0.9em;
+  }
+}
+
+#calculator {
+  padding: 40px 20px;
+  background-color: #e0f7fa; /* Fondo suave */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#calculator h2 {
+  color: #0074e1; /* Color vibrante */
+  margin-bottom: 20px;
+  font-size: 2em; /* Tamaño de fuente mayor */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra de texto */
+}
+
+#calculator .form-group {
+  margin-bottom: 20px; /* Mayor separación entre campos */
+}
+
+#calculator input[type="number"] {
+  width: 100%; /* Ajuste a ancho completo */
+  padding: 15px;
+  border: 2px solid #0074e1;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: border-color 0.3s; /* Transición suave */
+}
+
+#calculator input[type="number"]:focus {
+  border-color: #00c3ff; /* Cambia el color del borde al enfocar */
+}
+
+#calculator button {
+  background-color: #0074e1;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: transform 0.3s; /* Transición suave */
+}
+
+#calculator button:hover {
+  transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+#calculator .result {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #0074e1; /* Color vibrante para el resultado */
+  transition: opacity 0.3s; /* Transición suave para mostrar el resultado */
+}
+
+
+/* Estilos para la sección de contacto */
+.contact {
+  padding: 60px 20px;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact h2 {
+  color: #0074e1; /* Color vibrante */
+  margin-bottom: 20px;
+}
+
+.contact p {
+  margin-bottom: 20px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input, .contact textarea {
+  padding: 15px;
+  border: 2px solid #0074e1;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: border-color 0.3s; /* Transición de color del borde */
+}
+
+.contact input:focus, .contact textarea:focus {
+  border-color: #00c3ff; /* Cambia el color del borde al enfocar */
+}
+
+/* Estilos para la sección de pie de página */
+footer {
+  background-color: #0074e1;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1000;
+}
+
+footer p {
+  font-size: 1em;
+}
+
+footer a {
+  color: #a2d9ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff; /* Cambia a blanco al pasar el mouse */
+}
+
+/* Efecto de entrada para elementos */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+}
+
+/* Animaciones para botones */
+.button-animate {
+  transition: transform 0.3s;
+}
+
+.button-animate:hover {
+  transform: translateY(-5px); /* Efecto de movimiento al pasar el mouse */
+}
+
+/* Ajustes de responsividad */
+@media (max-width: 768px) {
+  #calculator input[type="number"] {
+    width: 100%; /* Entrada ocupa todo el ancho en pantallas pequeñas */
+  }
+
+  .contact {
+    padding: 40px 15px; /* Reduce padding en pantallas pequeñas */
+  }
+
+  footer {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #calculator h2 {
+    font-size: 1.5em; /* Reduce tamaño del encabezado */
+  }
+
+  .contact h2 {
+    font-size: 1.5em; /* Reduce tamaño del encabezado */
+  }
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column; /* Asegúrate de que el texto esté encima del mapa */
+  align-items: center; /* Centra el mapa horizontalmente */
+  margin: 20px auto; /* Margen automático para centrar */
+  padding: 0; /* Asegúrate de que no haya padding innecesario */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.map-container p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.map-container iframe {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: 50vh; /* Ajusta la altura como desees */
+  max-width: 600px; /* Máximo ancho para pantallas grandes */
+  border-radius: 15px;
+  border: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .map-container iframe {
+    height: 300px; /* Ajusta la altura en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container iframe {
+    height: 200px; /* Altura aún más pequeña para dispositivos móviles */
+  }
+}
+h1 {
+  text-align: center; /* Centrar el encabezado */
+  font-size: 3em; /* Tamaño del texto del encabezado */
+}
+
+.demo {
+  display: inline-block; /* Asegura que se comporte correctamente dentro del h1 */
+  font-size: 1em; /* Tamaño del texto de "RGB" */
+  margin-left: 10px; /* Espacio a la izquierda del texto RGB */
+}
+
+.rainbow {
+  animation: rainbow 3s linear infinite; /* Animación de color para el texto */
+}
+
+@keyframes rainbow {
+  0%, 100% { color: rgb(255,0,0); }
+  8% { color: rgb(255,127,0); }
+  16% { color: rgb(255,255,0); }
+  25% { color: rgb(127,255,0); }
+  33% { color: rgb(0,255,0); }
+  41% { color: rgb(0,255,127); }
+  50% { color: rgb(0,255,255); }
+  58% { color: rgb(0,127,255); }
+  66% { color: rgb(0,0,255); }
+  75% { color: rgb(127,0,255); }
+  83% { color: rgb(255,0,255); }
+  91% { color: rgb(255,0,127); }
+}

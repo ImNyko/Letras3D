@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Redirección para letras
+RewriteRule ^letras$ /letras.html [L,R=301]
+
+# Regla existente para sonido
+RewriteRule ^sonido$ /sonido.mp3 [L]

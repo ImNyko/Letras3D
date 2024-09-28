@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolas Index</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.pinimg.com/736x/9d/b0/e5/9db0e56dc26a4af4a4e67581ed53b2c4.jpg"/>
+    <style>
+        :root {
+            --background-color-dark: #2b2b2b;
+            --text-color-dark: #5ea1a1;
+            --background-color-light: #f0f0f0;
+            --text-color-light: #2b2b2b;
+            --highlight-color: #41b0a3;
+            --button-background-dark: #3b3b3b;
+            --button-background-light: #f5f5f5;
+            --button-text-color-dark: #5ea1a1;
+            --button-text-color-light: #5ea1a1;
+            --button-hover-color-dark: #5ea1a1;
+            --button-hover-color-light: #338733;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--background-color-dark);
+            color: var(--text-color-dark);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1, h2 {
+            background-color: var(--button-background-dark);
+            color: var(--highlight-color);
+            border: 3px solid var(--highlight-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            padding: 25px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            padding: 10px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .button-container {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .button-container a {
+            text-decoration: none;
+        }
+
+        .button-container button {
+            width: 200px;
+            height: 60px;
+            padding: 0 11px;
+            font-size: 1rem;
+            color: var(--button-text-color-dark);
+            background-color: var(--button-background-dark);
+            border: 2px solid var(--highlight-color);
+            cursor: pointer;
+            border-radius: 15px;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 12px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button-container button:hover {
+            background-color: var(--button-hover-color-dark);
+            color: var(--background-color-dark);
+            transform: scale(1.1);
+        }
+
+        /* Barra de búsqueda */
+        .search-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-box {
+            width: 80%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 2px solid var(--highlight-color);
+            border-radius: 10px;
+            background-color: var(--button-background-dark);
+            color: var(--text-color-dark);
+        }
+
+        .search-box::placeholder {
+            color: var(--text-color-dark);
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin-top: 10px;
+            background-color: var(--button-background-dark);
+            color: var(--highlight-color);
+            border: 2px solid var(--highlight-color);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: var(--highlight-color);
+            color: var(--background-color-dark);
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .expandable-content {
+                display: none;
+                margin-top: 10px;
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            .expandable-content.visible {
+                display: block;
+            }
+
+            .expandable-button {
+                display: block;
+                width: 90%;
+                padding: 10px;
+                margin: 10px auto;
+                background-color: var(--button-background-dark);
+                color: var(--highlight-color);
+                border: 2px solid var(--highlight-color);
+                text-align: center;
+                cursor: pointer;
+                border-radius: 15px;
+            }
+
+            h2 {
+                display: none;
+            }
+
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 0;
+            }
+
+            .toggle-theme, .another {
+                position: relative;
+                margin-top: 20px;
+            }
+        }
+
+        @media (min-width: 481px) {
+            .expandable-button {
+                display: none;
+            }
+
+            h2 {
+                display: block;
+            }
+
+            .toggle-theme {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                padding: 10px;
+                background-color: var(--button-background-dark);
+                border: 2px solid var(--highlight-color);
+                color: var(--highlight-color);
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            .another {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                padding: 10px;
+                background-color: var(--button-background-dark);
+                border: 2px solid var(--highlight-color);
+                color: var(--highlight-color);
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+        }
+
+        .toggle-theme:hover {
+            background-color: var(--highlight-color);
+            color: var(--background-color-light);
+        }
+
+        .light-theme {
+            --background-color-dark: #9d9d9d;
+            --text-color-dark: #2b2b2b;
+            --button-background-dark: #e0e0e0;
+            --button-text-color-dark: #ececec;
+            --button-hover-color-dark: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nicolas Index</h1>
+    <button class="toggle-theme" onclick="toggleTheme()">Modo Claro/Oscuro</button>
+    <a href="hacker.html"><button class="another">Hacker Mode</button></a>
+
+    <!-- Barra de búsqueda de Google -->
+    <div class="search-container">
+        <form action="https://www.google.com/search" method="get" target="_blank">
+            <input class="search-box" type="text" name="q" placeholder="Buscar en Google...">
+            <button class="search-button" type="submit">Buscar</button>
+        </form>
+    </div>
+
+
+    <div class="expandable-button" onclick="toggleContent('content-1')">Isos, Instaladores y Mirrors Chilenos de Linux ▼ </div>
+
+    <div id="content-1" class="expandable-content">
+
+        <h2 class="expandable-title">Isos, Instaladores y Mirrors Chilenos de Linux</h2>
+
+        <div class="button-container">
+
+            <a href="https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/es-es/O365ProPlusRetail.img"><button>Instalador Office 365</button></a>
+
+            <a href="https://archive.org/download/windows7-ultimate-sp1-esp/windows7-ultimate-sp1-x64-esp.iso"><button>Iso Windows 7 SP1 x64</button></a>
+
+            <a href="https://archive.org/download/windows-10-enterprise-ltsc-2021-x-64-dvd-esp/Windows_10_enterprise_ltsc_2021_x64_dvd_es-es_51d721ea.iso"><button>Iso Windows 10 LTSC</button></a>
+
+            <a href="https://pastebin.com/nyW4921y"><button>Iso Office 21, 19, 16 y 13</button></a>
+
+            <a href="https://mirror.ufro.cl/"><button>Mirror Ufro Isos Linux</button></a>
+
+            <a href="https://mirror.ufro.cl/"><button>ElMirror.Cl Isos Linux</button></a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="expandable-button" onclick="toggleContent('content-2')">Activadores ▼ </div>
+
+    <div id="content-2" class="expandable-content">
+
+        <h2>Activadores</h2>
+
+        <div class="button-container">
+
+            <a href="https://www.kmspicoofficial.com/kmspico-download-official/"><button>KmsPico</button></a>
+
+            <button onclick="WinrarCopy()">Copiar Comando Activador WinRAR</button>
+
+            <button onclick="copyToClipboard()">Copiar Activador Windows y Office</button>
+
+            <a href="https://spicetify.app/docs/getting-started"><button>spicetify</button></a>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="expandable-button" onclick="toggleContent('content-3')">Apps ▼ </div>
+
+    <div id="content-3" class="expandable-content">
+
+        <h2>Apps</h2>
+
+        <div class="button-container">
+
+            <a href="https://archive.org/download/vanced_202203/manager.apk"><button>Vanced Manger (Youtube)</button></a>
+
+            <a href="https://github.com/xManager-App/xManager/releases/latest/download/xManager.apk"><button>XManager (Spotify)</button></a>
+
+            <a href="https://github.com/SpotX-Official/SpotX"><button>SpotX (Spotify Windows)</button></a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="expandable-button" onclick="toggleContent('content-4')">Programas Básicos y Utilidades ▼ </div>
+
+    <div id="content-4" class="expandable-content">
+
+        <h2>Programas Básicos y Utilidades</h2>
+
+        <div class="button-container">
+
+            <a href="https://www.7-zip.org/download.html"><button>Instalador 7 Zip</button></a>
+
+            <a href="https://www.winrar.es/descargas/103/descargar-winrar-para-windows-x64-en-espanol"><button>Instalador WinRAR ▼ </button></a>
+
+            <a href="https://code.visualstudio.com/Download"><button>Visual Studio Code</button></a>
+
+            <a href="https://www.jetbrains.com/idea/download"><button>IntelliJ IDEA</button></a>
+
+            <a href="https://github.com/git-for-windows/git/releases"><button>Git for Windows</button></a>
+
+            <a href="https://www.python.org/downloads/"><button>Python</button></a>
+
+            <a href="https://www.virtualbox.org/wiki/Downloads"><button>VirtualBox</button></a>
+
+            <a href="https://www.notion.so/"><button>Notion</button></a>
+
+            <a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe"><button>Rufus 4.5</button></a>
+
+            <a href="https://github.com/pbatard/rufus/releases/download/v3.22/rufus-3.22p.exe"><button>Rufus Win 7</button></a>
+
+            <a href="https://optijuegos.github.io/"><button>Proyecto Juegos y Programas Optimizados</button></a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="expandable-button" onclick="toggleContent('content-5')">Foros ▼</div>
+
+    <div id="content-5" class="expandable-content">
+
+        <h2>Foros</h2>
+
+        <div class="button-container">
+
+            <a href="https://www.reddit.com"><button>Reddit</button></a>
+
+            <a href="https://xdaforums.com/"><button>XDAForums</button></a>
+
+            <a href="https://stackoverflow.com/"><button>stackoverflow</button></a>
+
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><button>ChatGPT</button></a>
+
+        </div>
+
+    </div>
+
+
+
+    <h2>Nicolas Latorre</h2>
+
+    <h3>Estudiante de Programacion, informatica y redes.</h3>
+
+    <h3>Contactame!</h3>
+
+    <div class="button-container">
+
+        <a href="mailto:nicolas.latorre.toro@gmail.com"><button>Mail</button></a>
+
+        <a href="https://www.linkedin.com/in/imnyko/"><button>Linkedin</button></a>
+
+    </div>
+
+
+
+    <script>
+
+        function copyToClipboard() {
+
+            const text = 'irm https://get.activated.win | iex';
+
+            navigator.clipboard.writeText(text).then(() => {
+
+                alert('Comando para activar Windows y Office copiado al portapapeles.');
+
+            }).catch(err => {
+
+                console.error('Error al copiar al portapapeles: ', err);
+
+            });
+
+        }
+
+
+
+        function WinrarCopy() {
+
+            const text = 'iwr -useb https://naeembolchhi.github.io/WinRAR-Activator/WRA.ps1 | iex';
+
+            navigator.clipboard.writeText(text).then(() => {
+
+                alert('Comando para activar WinRAR copiado al portapapeles.');
+
+            }).catch(err => {
+
+                console.error('Error al copiar al portapapeles: ', err);
+
+            });
+
+        }
+
+        
+
+        function toggleTheme() {
+
+            document.body.classList.toggle('light-theme');
+
+            const isLight = document.body.classList.contains('light-theme');
+
+
+
+            const h1h2Elements = document.querySelectorAll('h1, h2');
+
+            h1h2Elements.forEach(element => {
+
+                element.style.backgroundColor = isLight ? 'var(--button-background-light)' : 'var(--button-background-dark)';
+
+                element.style.color = 'var(--highlight-color)';
+
+            });
+
+
+
+            const buttons = document.querySelectorAll('.button-container button');
+
+            buttons.forEach(button => {
+
+                button.style.backgroundColor = isLight ? 'var(--button-background-light)' : 'var(--button-background-dark)';
+
+                button.style.color = isLight ? 'var(--button-text-color-light)' : 'var(--button-text-color-dark)';
+
+            });
+
+        }
+
+
+
+        function toggleContent(id) {
+
+            const content = document.getElementById(id);
+
+            content.classList.toggle('visible');
+
+        }
+
+    </script>
+
+    
+    <script>
+        function toggleContent(contentId) {
+            const content = document.getElementById(contentId);
+            content.classList.toggle('visible');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+        }
+
+        function searchGoogle() {
+            const query = document.getElementById('search-input').value;
+            window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+        }
+    </script>
+</body>
+</html>

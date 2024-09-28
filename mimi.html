@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me amas?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #9369b5, #4b60d7);
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button#yes {
+            background: #4CAF50;
+            color: white;
+        }
+        button#no {
+            background: #f44336;
+            color: white;
+        }
+        .response {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #FF69B4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Me amas?</h1>
+        <div class="buttons">
+            <button id="yes">Sí</button>
+            <button id="no">No</button>
+        </div>
+        <div class="response">Yo también te amo mucho mimi eres lo mejor que me paso en la vida y siempre quiero estar contigo te amo demaciado mi niña bonita mi dulseprinsesa jekfjefkasd, amo tus ojitos grandes tu forma de ser, tu color de pelo, todo de ti me encanta, te amo corazoncito <333</div>
+    </div>
+
+    <script>
+        function moveButton(button) {
+            const offsetX = (Math.random() - 0.50) * 300;
+            const offsetY = (Math.random() - 0.50) * 100;
+            button.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        }
+
+        document.getElementById('yes').addEventListener('click', function() {
+            document.querySelector('.response').style.display = 'block';
+        });
+
+        const noButton = document.getElementById('no');
+        noButton.addEventListener('mouseover', function() {
+            moveButton(noButton);
+        });
+        noButton.addEventListener('click', function() {
+            moveButton(noButton);
+        });
+    </script>
+</body>
+</html>
