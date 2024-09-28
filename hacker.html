@@ -1,232 +1,464 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Index</title>
-    <link rel="shortcut icon" type="image/x-icon" href="https://i.pinimg.com/736x/9d/b0/e5/9db0e56dc26a4af4a4e67581ed53b2c4.jpg"/>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #2b2b2b;
-            color: #f0f0f0;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            overflow:auto ; /* Ensure no scrollbars appear */
-        }
-
-        #matrix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Place it behind the content */
-            background-color: #000;
-            pointer-events: none;
-        }
-        a{
-            font-size: 2.5rem;
-            background-color: rgba(75, 75, 75, 0);
-            border: 0px solid #00ff00;
-            padding: 0px;
-            margin: 0;
-            text-transform: uppercase;
-            color: #00ff00;
-        }
-        h1 {
-            font-size: 2.5rem;
-            background-color: #4b4b4b;
-            border: 3px solid #00ff00;
-            padding: 25px;
-            margin: 0;
-            text-transform: uppercase;
-            color: #00ff00;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            background-color: #4b4b4b;
-            border: 3px solid #00ff00;
-            padding: 10px;
-            margin: 0;
-            text-transform: uppercase;
-            color: #00ff00;
-        }
-
-        .button-container {
-            margin-top: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .button-container a {
-            text-decoration: none;
-        }
-
-        .button-container button {
-            width: 200px;
-            height: 60px;
-            padding: 0 11px;
-            font-size: 1rem;
-            color: #00ff00;
-            background-color: #3b3b3b;
-            border: 2px solid #00ff00;
-            cursor: pointer;
-            border-radius: 15px;
-            transition: background-color 0.3s, transform 0.3s;
-            margin: 12px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .button-container button:hover {
-            background-color: #00ff00;
-            color: #2b2b2b;
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .button-container button {
-                width: 150px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .button-container button {
-                width: 90%;
-                margin: 8px 0;
-                height: 60px;
-            }
-        }
-
-        button, h1, h2 {
-            font-family: 'Courier New', Courier, monospace;
-        }
-    </style>
-</head>
-<body>
-    <canvas id="matrix"></canvas>
-    <h1><a href="index.html">Nicolas Index</a></h1>
-    <h3></h3>
-    <h3></h3>
-    <h2>Isos, Instaladores y Mirrors Chilenos de Linux</h2>
-    <div class="button-container">
-        <a href="https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/es-es/O365ProPlusRetail.img"><button>Instalador Office 365</button></a>
-        <a href="https://archive.org/download/windows7-ultimate-sp1-esp/windows7-ultimate-sp1-x64-esp.iso"><button>Iso Windows 7 SP1 x64</button></a>
-        <a href="https://archive.org/download/windows-10-enterprise-ltsc-2021-x-64-dvd-esp/Windows_10_enterprise_ltsc_2021_x64_dvd_es-es_51d721ea.iso"><button>Iso Windows 10 LTSC</button></a>
-        <a href="https://pastebin.com/nyW4921y"><button>Iso Office 21, 19, 16 y 13</button></a>
-        <a href="https://mirror.ufro.cl/"><button>Mirror Ufro Isos Linux</button></a>
-        <a href="https://mirror.ufro.cl/"><button>ElMirror.Cl Isos Linux</button></a>
-    </div>
-    <h2>Activadores</h2>
-    <div class="button-container">
-        <a href="https://www.kmspicoofficial.com/kmspico-download-official/"></a><button>KmsPico</button>
-        <button onclick="WinrarCopy()">Copiar Comando Activador WinRAR</button>
-        <button onclick="copyToClipboard()">Copiar Activador Windows y Office</button>
-    </div>
-    <h2>Apps Crackeadas</h2>
-    <div class="button-container">
-        <a href="https://archive.org/download/vanced_202203/manager.apk"><button>Vanced Manger (Youtube)</button></a>
-        <a href="https://github.com/xManager-App/xManager/releases/latest/download/xManager.apk"><button>XManager (Spotify)</button></a>
-        <a href="https://github.com/SpotX-Official/SpotX"><button>SpotX (Spotify Windows)</button></a>
-    </div>
-    <h2>Programas Básicos y Utilidades</h2>
-    <div class="button-container">
-        <a href="https://www.7-zip.org/download.html"><button>Instalador 7 Zip</button></a>
-        <a href="https://www.winrar.es/descargas/103/descargar-winrar-para-windows-x64-en-espanol"><button>Instalador WinRAR</button></a>
-        <a href="https://code.visualstudio.com/Download"><button>Visual Studio Code</button></a>
-        <a href="https://www.jetbrains.com/idea/download"><button>IntelliJ IDEA</button></a>
-        <a href="https://github.com/git-for-windows/git/releases"><button>Git for Windows</button></a>
-        <a href="https://www.python.org/downloads/"><button>Python</button></a>
-        <a href="https://www.virtualbox.org/wiki/Downloads"><button>VirtualBox</button></a>
-        <a href="https://www.notion.so/"><button>Notion</button></a>
-        <a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe"><button>Rufus 4.5</button></a>
-        <a href="https://github.com/pbatard/rufus/releases/download/v3.22/rufus-3.22p.exe"><button>Rufus Win 7</button></a>
-        <a href="https://optijuegos.github.io/"><button>Proyecto Juegos y Programas Optimizados</button></a>
-    </div>
-    <h2>Foros</h2>
-    <div class="button-container">
-        <a href="https://www.reddit.com"><button>Reddit</button></a>
-        <a href="https://xdaforums.com/"><button>XDAForums</button></a>
-        <a href="https://stackoverflow.com/"><button>stackoverflow</button></a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><button>ChatGPT</button></a>
-    </div>
-    <h2>Nicolas Latorre</h2>
-    <script>
-        function copyToClipboard() {
-            const text = 'irm https://get.activated.win | iex';
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Comando para activar Windows y Office copiado al portapapeles.');
-            }).catch(err => {
-                console.error('Error al copiar al portapapeles: ', err);
-            });
-        }
-
-        function WinrarCopy() {
-            const text = 'iwr -useb https://naeembolchhi.github.io/WinRAR-Activator/WRA.ps1 | iex';
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Comando para activar WinRAR copiado al portapapeles.');
-            }).catch(err => {
-                console.error('Error al copiar al portapapeles: ', err);
-            });
-        }
-
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-
-        const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const katakana = 'アカサタナハマヤラワガザダバパイキシチニヒミリギジヂビピウクスツヌフムユルグズヅブプエケセテネヘメレゲゼデベペオコソトノホモヨロヲゴゾドボポヴッン';
-        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const nums = '0123456789';
-
-        const alphabet = katakana + latin + nums;
-
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const rainDrops = Array.from({ length: columns }).fill(1);
-
-        const draw = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < rainDrops.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-
-                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    rainDrops[i] = 0;
-                }
-
-                rainDrops[i]++;
-            }
-        };
-
-        setInterval(draw, 33);
-    </script>
-    <div class="button-container
-        <a href="mailto:nicolas.latorre.toro@gmail.com"><button>Mail</button></a>
-        <a href="https://www.linkedin.com/in/imnyko/"><button>Linkedin</button></a>
-    </div>
-    <h2>dev: ImNyko / feedback: Cristioro</h2>
-</body>
-</html>
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nicolas Index</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.pinimg.com/736x/9d/b0/e5/9db0e56dc26a4af4a4e67581ed53b2c4.jpg"/>
+
+    <style>
+
+        body {
+
+            font-family: 'Courier New', Courier, monospace;
+
+            background-color: #2b2b2b;
+
+            color: #f0f0f0;
+
+            text-align: center;
+
+            margin: 0;
+
+            padding: 0;
+
+            overflow:auto ; /* Ensure no scrollbars appear */
+
+        }
+
+
+
+        #matrix {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            z-index: -1; /* Place it behind the content */
+
+            background-color: #000;
+
+            pointer-events: none;
+
+        }
+
+        a{
+
+            font-size: 2.5rem;
+
+            background-color: rgba(75, 75, 75, 0);
+
+            border: 0px solid #00ff00;
+
+            padding: 0px;
+
+            margin: 0;
+
+            text-transform: uppercase;
+
+            color: #00ff00;
+
+        }
+
+        h1 {
+
+            font-size: 2.5rem;
+
+            background-color: #4b4b4b;
+
+            border: 3px solid #00ff00;
+
+            padding: 25px;
+
+            margin: 0;
+
+            text-transform: uppercase;
+
+            color: #00ff00;
+
+        }
+
+
+
+        h2 {
+
+            font-size: 1.5rem;
+
+            background-color: #4b4b4b;
+
+            border: 3px solid #00ff00;
+
+            padding: 10px;
+
+            margin: 0;
+
+            text-transform: uppercase;
+
+            color: #00ff00;
+
+        }
+
+
+
+        .button-container {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+        }
+
+
+
+        .button-container a {
+
+            text-decoration: none;
+
+        }
+
+
+
+        .button-container button {
+
+            width: 200px;
+
+            height: 60px;
+
+            padding: 0 11px;
+
+            font-size: 1rem;
+
+            color: #00ff00;
+
+            background-color: #3b3b3b;
+
+            border: 2px solid #00ff00;
+
+            cursor: pointer;
+
+            border-radius: 15px;
+
+            transition: background-color 0.3s, transform 0.3s;
+
+            margin: 12px;
+
+            box-sizing: border-box;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+
+        .button-container button:hover {
+
+            background-color: #00ff00;
+
+            color: #2b2b2b;
+
+            transform: scale(1.1);
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .button-container button {
+
+                width: 150px;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 480px) {
+
+            .button-container {
+
+                flex-direction: column;
+
+                align-items: center;
+
+            }
+
+            .button-container button {
+
+                width: 90%;
+
+                margin: 8px 0;
+
+                height: 60px;
+
+            }
+
+        }
+
+
+
+        button, h1, h2 {
+
+            font-family: 'Courier New', Courier, monospace;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <h1><a href="index.html">Nicolas Index</a></h1>
+
+    <h3></h3>
+
+    <h3></h3>
+
+    <h2>Isos, Instaladores y Mirrors Chilenos de Linux</h2>
+
+    <div class="button-container">
+
+        <a href="https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/es-es/O365ProPlusRetail.img"><button>Instalador Office 365</button></a>
+
+        <a href="https://archive.org/download/windows7-ultimate-sp1-esp/windows7-ultimate-sp1-x64-esp.iso"><button>Iso Windows 7 SP1 x64</button></a>
+
+        <a href="https://archive.org/download/windows-10-enterprise-ltsc-2021-x-64-dvd-esp/Windows_10_enterprise_ltsc_2021_x64_dvd_es-es_51d721ea.iso"><button>Iso Windows 10 LTSC</button></a>
+
+        <a href="https://pastebin.com/nyW4921y"><button>Iso Office 21, 19, 16 y 13</button></a>
+
+        <a href="https://mirror.ufro.cl/"><button>Mirror Ufro Isos Linux</button></a>
+
+        <a href="https://mirror.ufro.cl/"><button>ElMirror.Cl Isos Linux</button></a>
+
+    </div>
+
+    <h2>Activadores</h2>
+
+    <div class="button-container">
+
+        <a href="https://www.kmspicoofficial.com/kmspico-download-official/"></a><button>KmsPico</button>
+
+        <button onclick="WinrarCopy()">Copiar Comando Activador WinRAR</button>
+
+        <button onclick="copyToClipboard()">Copiar Activador Windows y Office</button>
+
+    </div>
+
+    <h2>Apps Crackeadas</h2>
+
+    <div class="button-container">
+
+        <a href="https://archive.org/download/vanced_202203/manager.apk"><button>Vanced Manger (Youtube)</button></a>
+
+        <a href="https://github.com/xManager-App/xManager/releases/latest/download/xManager.apk"><button>XManager (Spotify)</button></a>
+
+        <a href="https://github.com/SpotX-Official/SpotX"><button>SpotX (Spotify Windows)</button></a>
+
+    </div>
+
+    <h2>Programas Básicos y Utilidades</h2>
+
+    <div class="button-container">
+
+        <a href="https://www.7-zip.org/download.html"><button>Instalador 7 Zip</button></a>
+
+        <a href="https://www.winrar.es/descargas/103/descargar-winrar-para-windows-x64-en-espanol"><button>Instalador WinRAR</button></a>
+
+        <a href="https://code.visualstudio.com/Download"><button>Visual Studio Code</button></a>
+
+        <a href="https://www.jetbrains.com/idea/download"><button>IntelliJ IDEA</button></a>
+
+        <a href="https://github.com/git-for-windows/git/releases"><button>Git for Windows</button></a>
+
+        <a href="https://www.python.org/downloads/"><button>Python</button></a>
+
+        <a href="https://www.virtualbox.org/wiki/Downloads"><button>VirtualBox</button></a>
+
+        <a href="https://www.notion.so/"><button>Notion</button></a>
+
+        <a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe"><button>Rufus 4.5</button></a>
+
+        <a href="https://github.com/pbatard/rufus/releases/download/v3.22/rufus-3.22p.exe"><button>Rufus Win 7</button></a>
+
+        <a href="https://optijuegos.github.io/"><button>Proyecto Juegos y Programas Optimizados</button></a>
+
+    </div>
+
+    <h2>Foros</h2>
+
+    <div class="button-container">
+
+        <a href="https://www.reddit.com"><button>Reddit</button></a>
+
+        <a href="https://xdaforums.com/"><button>XDAForums</button></a>
+
+        <a href="https://stackoverflow.com/"><button>stackoverflow</button></a>
+
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><button>ChatGPT</button></a>
+
+    </div>
+
+    <h2>Nicolas Latorre</h2>
+
+    <script>
+
+        function copyToClipboard() {
+
+            const text = 'irm https://get.activated.win | iex';
+
+            navigator.clipboard.writeText(text).then(() => {
+
+                alert('Comando para activar Windows y Office copiado al portapapeles.');
+
+            }).catch(err => {
+
+                console.error('Error al copiar al portapapeles: ', err);
+
+            });
+
+        }
+
+
+
+        function WinrarCopy() {
+
+            const text = 'iwr -useb https://naeembolchhi.github.io/WinRAR-Activator/WRA.ps1 | iex';
+
+            navigator.clipboard.writeText(text).then(() => {
+
+                alert('Comando para activar WinRAR copiado al portapapeles.');
+
+            }).catch(err => {
+
+                console.error('Error al copiar al portapapeles: ', err);
+
+            });
+
+        }
+
+
+
+        const canvas = document.getElementById('matrix');
+
+        const ctx = canvas.getContext('2d');
+
+
+
+        const resizeCanvas = () => {
+
+            canvas.width = window.innerWidth;
+
+            canvas.height = window.innerHeight;
+
+        };
+
+
+
+        window.addEventListener('resize', resizeCanvas);
+
+        resizeCanvas();
+
+
+
+        const katakana = 'アカサタナハマヤラワガザダバパイキシチニヒミリギジヂビピウクスツヌフムユルグズヅブプエケセテネヘメレゲゼデベペオコソトノホモヨロヲゴゾドボポヴッン';
+
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        const nums = '0123456789';
+
+
+
+        const alphabet = katakana + latin + nums;
+
+
+
+        const fontSize = 16;
+
+        const columns = canvas.width / fontSize;
+
+
+
+        const rainDrops = Array.from({ length: columns }).fill(1);
+
+
+
+        const draw = () => {
+
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+
+            ctx.fillStyle = '#0F0';
+
+            ctx.font = fontSize + 'px monospace';
+
+
+
+            for (let i = 0; i < rainDrops.length; i++) {
+
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+
+                    rainDrops[i] = 0;
+
+                }
+
+
+
+                rainDrops[i]++;
+
+            }
+
+        };
+
+
+
+        setInterval(draw, 33);
+
+    </script>
+
+    <div class="button-container
+
+        <a href="mailto:nicolas.latorre.toro@gmail.com"><button>Mail</button></a>
+
+        <a href="https://www.linkedin.com/in/imnyko/"><button>Linkedin</button></a>
+
+    </div>
+
+    <h2>dev: ImNyko / feedback: Cristioro</h2>
+
+</body>
+
+</html>
+
