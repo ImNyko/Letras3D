@@ -1,0 +1,171 @@
+:root {
+    --background-color-dark: #2b2b2b;
+    --text-color-dark: #5ea1a1;
+    --background-color-light: #f0f0f0;
+    --text-color-light: #2b2b2b;
+    --highlight-color: #41b0a3;
+    --button-background-dark: #3b3b3b;
+    --button-background-light: #f5f5f5;
+    --button-text-color-dark: #5ea1a1;
+    --button-text-color-light: #5ea1a1;
+    --button-hover-color-dark: #5ea1a1;
+    --button-hover-color-light: #338733;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2 {
+    background-color: var(--button-background-dark);
+    color: var(--highlight-color);
+    border: 3px solid var(--highlight-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+    font-size: 2.5rem;
+    padding: 25px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.button-container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button-container a {
+    text-decoration: none;
+}
+
+.button-container button {
+    width: 200px;
+    height: 60px;
+    padding: 0 11px;
+    font-size: 1rem;
+    color: var(--button-text-color-dark);
+    background-color: var(--button-background-dark);
+    border: 2px solid var(--highlight-color);
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 12px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container button:hover {
+    background-color: var(--button-hover-color-dark);
+    color: var(--background-color-dark);
+    transform: scale(1.1);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .expandable-content {
+        display: none;
+        margin-top: 10px;
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .expandable-content.visible {
+        display: block;
+    }
+
+    .expandable-button {
+        display: block;
+        width: 90%;
+        padding: 10px;
+        margin: 10px auto;
+        background-color: var(--button-background-dark);
+        color: var(--highlight-color);
+        border: 2px solid var(--highlight-color);
+        text-align: center;
+        cursor: pointer;
+        border-radius: 15px;
+    }
+
+    h2 {
+        display: none; /* Ocultar h2 en dispositivos móviles */
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    .toggle-theme, .another {
+        position: relative;
+        margin-top: 20px; /* Mover botones hacia abajo */
+    }
+}
+
+@media (min-width: 481px) {
+    .expandable-button {
+        display: none; /* Ocultar botones de expansión en pantallas grandes */
+    }
+
+    h2 {
+        display: block; /* Mostrar h2 en pantallas grandes */
+    }
+
+    .toggle-theme {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px;
+        background-color: var(--button-background-dark);
+        border: 2px solid var(--highlight-color);
+        color: var(--highlight-color);
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .another {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        background-color: var(--button-background-dark);
+        border: 2px solid var(--highlight-color);
+        color: var(--highlight-color);
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+}
+
+.toggle-theme:hover {
+    background-color: var(--highlight-color);
+    color: var(--background-color-light);
+}
+
+.light-theme {
+    --background-color-dark: #9d9d9d;
+    --text-color-dark: #2b2b2b;
+    --button-background-dark: #e0e0e0;
+    --button-text-color-dark: #ececec;
+    --button-hover-color-dark: #ffffff;
+}
