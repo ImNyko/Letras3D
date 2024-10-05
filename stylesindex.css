@@ -10,6 +10,7 @@
     --button-text-color-light: #5ea1a1;
     --button-hover-color-dark: #5ea1a1;
     --button-hover-color-light: #338733;
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -26,7 +27,9 @@ h1, h2 {
     background-color: var(--button-background-dark);
     color: var(--highlight-color);
     border: 3px solid var(--highlight-color);
-    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 h1 {
@@ -34,6 +37,7 @@ h1 {
     padding: 25px;
     margin: 0;
     text-transform: uppercase;
+    animation: slideIn 0.5s ease;
 }
 
 h2 {
@@ -41,6 +45,18 @@ h2 {
     padding: 10px;
     margin: 0;
     text-transform: uppercase;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .button-container {
@@ -58,24 +74,31 @@ h2 {
     width: 200px;
     height: 60px;
     padding: 0 11px;
-    font-size: 1rem;
+    font-size: 1.2rem; /* Aumentar el tamaño de fuente */
     color: var(--button-text-color-dark);
     background-color: var(--button-background-dark);
     border: 2px solid var(--highlight-color);
     cursor: pointer;
     border-radius: 15px;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     margin: 12px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; /* Para el efecto de sombra */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Sombra para dar profundidad */
 }
 
 .button-container button:hover {
     background-color: var(--button-hover-color-dark);
     color: var(--background-color-dark);
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.button-container button:active {
+    transform: scale(0.95); /* Efecto de clic */
 }
 
 /* Responsive design */
@@ -102,70 +125,52 @@ h2 {
         text-align: center;
         cursor: pointer;
         border-radius: 15px;
+        transition: transform 0.2s;
+    }
+
+    .expandable-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px var(--shadow-color);
     }
 
     h2 {
         display: none; /* Ocultar h2 en dispositivos móviles */
     }
 
-    .button-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 0;
-    }
-
     .toggle-theme, .another {
-        position: relative;
+        position: relative; /* Cambiado a relativo para evitar problemas en móviles */
         margin-top: 20px; /* Mover botones hacia abajo */
+        width: 90%; /* Ajustar ancho de botones en móviles */
+        padding: 10px; /* Espaciado interno */
+        background-color: var(--button-background-dark); /* Color de fondo del botón */
+        border: 2px solid var(--highlight-color); /* Color del borde */
+        color: var(--highlight-color); /* Color del texto */
+        cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+        border-radius: 5px; /* Bordes redondeados */
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Transición suave */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+        font-size: 1.1rem; /* Aumentar tamaño de la fuente para mejor legibilidad */
+        text-align: center; /* Centrar texto */
+    }
+    
+    .toggle-theme:hover, .another:hover {
+        background-color: var(--highlight-color); /* Color de fondo al pasar el mouse */
+        color: var(--background-color-light); /* Color de texto al pasar el mouse */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Aumentar sombra al pasar el mouse */
     }
 }
 
+/* Estilos para pantallas grandes */
 @media (min-width: 481px) {
-    .expandable-button {
-        display: none; /* Ocultar botones de expansión en pantallas grandes */
-    }
-
-    h2 {
-        display: block; /* Mostrar h2 en pantallas grandes */
-    }
-
     .toggle-theme {
         position: absolute;
-        top: 20px;
-        left: 20px;
-        padding: 10px;
-        background-color: var(--button-background-dark);
-        border: 2px solid var(--highlight-color);
-        color: var(--highlight-color);
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
+        top: 20px; /* Posición en la parte superior */
+        left: 20px; /* Posición a la izquierda */
     }
 
     .another {
         position: absolute;
-        top: 20px;
-        right: 20px;
-        padding: 10px;
-        background-color: var(--button-background-dark);
-        border: 2px solid var(--highlight-color);
-        color: var(--highlight-color);
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
+        top: 20px; /* Posición en la parte superior */
+        right: 20px; /* Posición a la derecha */
     }
-}
-
-.toggle-theme:hover {
-    background-color: var(--highlight-color);
-    color: var(--background-color-light);
-}
-
-.light-theme {
-    --background-color-dark: #9d9d9d;
-    --text-color-dark: #2b2b2b;
-    --button-background-dark: #e0e0e0;
-    --button-text-color-dark: #ececec;
-    --button-hover-color-dark: #ffffff;
 }

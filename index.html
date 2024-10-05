@@ -5,84 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicolas Index</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://i.pinimg.com/736x/9d/b0/e5/9db0e56dc26a4af4a4e67581ed53b2c4.jpg"/>
-    <link rel="stylesheet" href="stylesindex.css"> <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="stylesindex.css">
 </head>
 <body>
-    <h1>Nicolas Index</h1>
+    <header>
+        <h1>Nicolas Index</h1>
+        <button class="toggle-theme" onclick="toggleTheme()">Modo Claro/Oscuro</button>
+        <a href="hacker.html"><button class="another">Hacker Mode</button></a>
+    </header>
 
-    <button class="toggle-theme" onclick="toggleTheme()">Modo Claro/Oscuro</button>
-    <a href="hacker.html"><button class="another">Hacker Mode</button></a>
-
-    <div class="expandable-button" onclick="toggleContent('content-1')">Isos, Instaladores y Mirrors Chilenos de Linux ▼ </div>
-    <div id="content-1" class="expandable-content">
-        <h2 class="expandable-title">Isos, Instaladores y Mirrors Chilenos de Linux</h2>
-        <div class="button-container">
-            <a href="https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/es-es/O365ProPlusRetail.img"><button>Instalador Office 365</button></a>
-            <a href="https://archive.org/download/windows7-ultimate-sp1-esp/windows7-ultimate-sp1-x64-esp.iso"><button>Iso Windows 7 SP1 x64</button></a>
-            <a href="https://archive.org/download/windows-10-enterprise-ltsc-2021-x-64-dvd-esp/Windows_10_enterprise_ltsc_2021_x64_dvd_es-es_51d721ea.iso"><button>Iso Windows 10 LTSC</button></a>
-            <a href="https://pastebin.com/nyW4921y"><button>Iso Office 21, 19, 16 y 13</button></a>
-            <a href="https://mirror.ufro.cl/"><button>Mirror Ufro Isos Linux</button></a>
-            <a href="https://mirror.ufro.cl/"><button>ElMirror.Cl Isos Linux</button></a>
+    <main>
+        <div class="expandable-button" onclick="toggleContent('content-1')">Isos, Instaladores y Mirrors Chilenos de Linux ▼</div>
+        <div id="content-1" class="expandable-content">
+            <h2 class="expandable-title">Isos, Instaladores y Mirrors Chilenos de Linux</h2>
+            <div class="button-container">
+                <a href="https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/es-es/O365ProPlusRetail.img"><button>Instalador Office 365</button></a>
+                <a href="https://archive.org/download/windows7-ultimate-sp1-esp/windows7-ultimate-sp1-x64-esp.iso"><button>Iso Windows 7 SP1 x64</button></a>
+                <a href="https://archive.org/download/windows-10-enterprise-ltsc-2021-x-64-dvd-esp/Windows_10_enterprise_ltsc_2021_x64_dvd_es-es_51d721ea.iso"><button>Iso Windows 10 LTSC</button></a>
+                <a href="https://pastebin.com/nyW4921y"><button>Iso Office 21, 19, 16 y 13</button></a>
+                <a href="https://mirror.ufro.cl/"><button>Mirror Ufro Isos Linux</button></a>
+                <a href="https://mirror.ufro.cl/"><button>ElMirror.Cl Isos Linux</button></a>
+            </div>
         </div>
-    </div>
 
-    <div class="expandable-button" onclick="toggleContent('content-2')">Activadores ▼ </div>
-    <div id="content-2" class="expandable-content">
-        <h2>Activadores</h2>
-        <div class="button-container">
-            <a href="https://www.kmspicoofficial.com/kmspico-download-official/"><button>KmsPico</button></a>
-            <button onclick="WinrarCopy()">Copiar Comando Activador WinRAR</button>
-            <button onclick="copyToClipboard()">Copiar Activador Windows y Office</button>
-            <a href="https://spicetify.app/docs/getting-started"><button>spicetify</button></a>
+        <div class="expandable-button" onclick="toggleContent('content-2')">Activadores ▼</div>
+        <div id="content-2" class="expandable-content">
+            <h2>Activadores</h2>
+            <div class="button-container">
+                <a href="https://www.kmspicoofficial.com/kmspico-download-official/"><button>KmsPico</button></a>
+                <button onclick="WinrarCopy()">Copiar Comando Activador WinRAR</button>
+                <button onclick="copyToClipboard()">Copiar Activador Windows y Office</button>
+                <a href="https://spicetify.app/docs/getting-started"><button>spicetify</button></a>
+            </div>
         </div>
-    </div>
-    
-    <div class="expandable-button" onclick="toggleContent('content-3')">Apps ▼ </div>
-    <div id="content-3" class="expandable-content">
-        <h2>Apps</h2>
-        <div class="button-container">
-            <a href="https://archive.org/download/vanced_202203/manager.apk"><button>Vanced Manger (Youtube)</button></a>
-            <a href="https://github.com/xManager-App/xManager/releases/latest/download/xManager.apk"><button>XManager (Spotify)</button></a>
-            <a href="https://github.com/SpotX-Official/SpotX"><button>SpotX (Spotify Windows)</button></a>
+        
+        <div class="expandable-button" onclick="toggleContent('content-3')">Apps ▼</div>
+        <div id="content-3" class="expandable-content">
+            <h2>Apps</h2>
+            <div class="button-container">
+                <a href="https://archive.org/download/vanced_202203/manager.apk"><button>Vanced Manager (Youtube)</button></a>
+                <a href="https://github.com/xManager-App/xManager/releases/latest/download/xManager.apk"><button>XManager (Spotify)</button></a>
+                <a href="https://github.com/SpotX-Official/SpotX"><button>SpotX (Spotify Windows)</button></a>
+            </div>
         </div>
-    </div>
 
-    <div class="expandable-button" onclick="toggleContent('content-4')">Programas Básicos y Utilidades ▼ </div>
-    <div id="content-4" class="expandable-content">
-        <h2>Programas Básicos y Utilidades</h2>
-        <div class="button-container">
-            <a href="https://www.7-zip.org/download.html"><button>Instalador 7 Zip</button></a>
-            <a href="https://www.winrar.es/descargas/103/descargar-winrar-para-windows-x64-en-espanol"><button>Instalador WinRAR ▼ </button></a>
-            <a href="https://code.visualstudio.com/Download"><button>Visual Studio Code</button></a>
-            <a href="https://www.jetbrains.com/idea/download"><button>IntelliJ IDEA</button></a>
-            <a href="https://github.com/git-for-windows/git/releases"><button>Git for Windows</button></a>
-            <a href="https://www.python.org/downloads/"><button>Python</button></a>
-            <a href="https://www.virtualbox.org/wiki/Downloads"><button>VirtualBox</button></a>
-            <a href="https://www.notion.so/"><button>Notion</button></a>
-            <a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe"><button>Rufus 4.5</button></a>
-            <a href="https://github.com/pbatard/rufus/releases/download/v3.22/rufus-3.22p.exe"><button>Rufus Win 7</button></a>
-            <a href="https://optijuegos.github.io/"><button>Proyecto Juegos y Programas Optimizados</button></a>
+        <div class="expandable-button" onclick="toggleContent('content-4')">Programas Básicos y Utilidades ▼</div>
+        <div id="content-4" class="expandable-content">
+            <h2>Programas Básicos y Utilidades</h2>
+            <div class="button-container">
+                <a href="https://www.7-zip.org/download.html"><button>Instalador 7 Zip</button></a>
+                <a href="https://www.winrar.es/descargas/103/descargar-winrar-para-windows-x64-en-espanol"><button>Instalador WinRAR</button></a>
+                <a href="https://code.visualstudio.com/Download"><button>Visual Studio Code</button></a>
+                <a href="https://www.jetbrains.com/idea/download"><button>IntelliJ IDEA</button></a>
+                <a href="https://github.com/git-for-windows/git/releases"><button>Git for Windows</button></a>
+                <a href="https://www.python.org/downloads/"><button>Python</button></a>
+                <a href="https://www.virtualbox.org/wiki/Downloads"><button>VirtualBox</button></a>
+                <a href="https://www.notion.so/"><button>Notion</button></a>
+                <a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe"><button>Rufus 4.5</button></a>
+                <a href="https://github.com/pbatard/rufus/releases/download/v3.22/rufus-3.22p.exe"><button>Rufus Win 7</button></a>
+                <a href="https://optijuegos.github.io/"><button>Proyecto Juegos y Programas Optimizados</button></a>
+            </div>
         </div>
-    </div>
 
-    <div class="expandable-button" onclick="toggleContent('content-5')">Foros ▼</div>
-    <div id="content-5" class="expandable-content">
-        <h2>Foros</h2>
-        <div class="button-container">
-            <a href="https://www.reddit.com"><button>Reddit</button></a>
-            <a href="https://xdaforums.com/"><button>XDAForums</button></a>
-            <a href="https://stackoverflow.com/"><button>stackoverflow</button></a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><button>ChatGPT</button></a>
+        <div class="expandable-button" onclick="toggleContent('content-5')">Foros ▼</div>
+        <div id="content-5" class="expandable-content">
+            <h2>Foros</h2>
+            <div class="button-container">
+                <a href="https://www.reddit.com"><button>Reddit</button></a>
+                <a href="https://xdaforums.com/"><button>XDAForums</button></a>
+                <a href="https://stackoverflow.com/"><button>Stack Overflow</button></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><button>ChatGPT</button></a>
+            </div>
         </div>
-    </div>
+    </main>
 
-    <h2>Nicolas Latorre</h2>
-    <h3>Estudiante de Programacion, informatica y redes.</h3>
-    <h3>Contactame!</h3>
-    <div class="button-container">
-        <a href="mailto:nicolas.latorre.toro@gmail.com"><button>Mail</button></a>
-        <a href="https://www.linkedin.com/in/imnyko/"><button>Linkedin</button></a>
-    </div>
-    <script src="jsindex.js"></script> <!-- Enlace al archivo JavaScript -->
+    <footer>
+        <h2>Nicolas Latorre</h2>
+        <h3>Estudiante de Programación, Informática y Redes.</h3>
+        <h3>¡Contáctame!</h3>
+        <div class="button-container">
+            <a href="mailto:nicolas.latorre.toro@gmail.com"><button class="contact-button">Mail</button></a>
+            <a href="https://www.linkedin.com/in/imnyko/"><button class="contact-button">LinkedIn</button></a>
+        </div>
+        <p>© 2024 Nicolas Latorre. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="jsindex.js"></script>
 </body>
 </html>
