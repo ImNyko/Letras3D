@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Bootstrap CSS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letreros 3D - Personalizados</title>
@@ -92,24 +103,47 @@
     </section>   
     <section id="contact" class="fade-in-section">
         <h2>Contacto</h2>
-        <form>
+        <div id="response-message"></div> <!-- Contenedor para mostrar el mensaje -->
+        <form id="contact-form" method="POST">
             <div class="form-group">
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" placeholder="Tu nombre">
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
             </div>
             <div class="form-group">
                 <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" placeholder="Tu correo">
+                <input type="email" id="email" name="email" placeholder="Tu correo" required>
             </div>
             <div class="form-group">
                 <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" placeholder="Escribe tu mensaje"></textarea>
+                <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
             </div>
             <button type="submit" class="btn-primary">Enviar</button>
         </form>
     </section>
-
-    <script src="scriptsletras.js"></script>
+    
+    <script src="scriptsletrass.js"></script>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Éxito</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Mensaje enviado. Nos contactaremos en breve.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
 </body>
 <footer>
     <p>&copy; Nicolas Latorre nicolaaaas.lt</p>

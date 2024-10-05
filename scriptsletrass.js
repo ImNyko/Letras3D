@@ -55,3 +55,27 @@ document.getElementById('calc-form').addEventListener('submit', function(event) 
   // Mostrar el valor total
   document.getElementById('total-value').textContent = `Valor total: ${totalValue} pesos`;
 });
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita el envío normal del formulario
+
+  var formData = new FormData(this); // Crea un objeto FormData con los datos del formulario
+
+  // Verifica los datos antes de enviarlos
+  console.log('Datos enviados:', Array.from(formData.entries()));
+
+  fetch('procesar_formulario.php', {
+      method: 'POST',
+      body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById('response-message').innerHTML = data; // Muestra la respuesta en el contenedor
+      if (data.includes("Mensaje enviado correctamente")) {
+          $('#successModal').modal('show'); // Muestra el modal de éxito
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
+      document.getElementById('response-message').innerHTML = "Error al enviar el mensaje."; // Mensaje de error
+  });
+});
